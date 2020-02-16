@@ -21,7 +21,7 @@ class Catalog {
   ) {
     val instance = clazz.getConstructor(Context::class.java).newInstance(context)
     when (instance) {
-      is TextView -> textStyles(context, *styles)
+      is TextView -> textStyles(context, *styles, text = text)
       is ImageView -> imageStyles(context, *styles)
       is ViewGroup -> viewGroupStyles(context, *styles, view = instance)
       else -> viewStyles(context, clazz, *styles)
@@ -40,10 +40,10 @@ class Catalog {
     _views.addAll(views)
   }
 
-  private fun textStyles(context: Context, @StyleRes vararg styles: Int) {
+  private fun textStyles(context: Context, @StyleRes vararg styles: Int, text: String?) {
     val textViews = styles.map { styleId ->
       TextView(context).apply {
-        text = "text"
+        this.text = text
         style(styleId)
       }
     }
