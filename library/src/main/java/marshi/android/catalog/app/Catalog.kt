@@ -3,14 +3,12 @@ package marshi.android.catalog.app
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.StyleRes
 import com.airbnb.paris.extensions.style
-import com.airbnb.paris.extensions.textViewStyle
 
-class Catalog() {
+class Catalog {
 
   private val _views = mutableListOf<View>()
   val views: List<View> = _views
@@ -25,12 +23,15 @@ class Catalog() {
     when (instance) {
       is TextView -> textStyles(context, *styles)
       is ImageView -> imageStyles(context, *styles)
-//      is ViewGroup -> viewGroupStyles(context, *styles)
+      is ViewGroup -> viewGroupStyles(context, *styles, view = instance)
       else -> viewStyles(context, clazz, *styles)
     }
   }
 
-  private fun <T : View> viewStyles(context: Context, clazz: Class<T>, @StyleRes vararg styles: Int) {
+  private fun <T : View> viewStyles(
+    context: Context,
+    clazz: Class<T>, @StyleRes vararg styles: Int
+  ) {
     val views = styles.map { styleId ->
       clazz.getConstructor(Context::class.java).newInstance(context).apply {
         style(styleId)
@@ -58,7 +59,7 @@ class Catalog() {
     _views.addAll(buttonViews)
   }
 
-  fun viewGroupStyles(context: Context, @StyleRes vararg styles: Int, view: ViewGroup) {
+  private fun viewGroupStyles(context: Context, @StyleRes vararg styles: Int, view: ViewGroup) {
     val buttonViews = styles.map { styleId ->
       view.apply {
         style(styleId)

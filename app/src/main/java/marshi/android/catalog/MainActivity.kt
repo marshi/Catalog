@@ -1,17 +1,13 @@
 package marshi.android.catalog
 
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.DataBindingUtil
 import marshi.android.catalog.app.Catalog
 import marshi.android.catalog.databinding.ActivityMainBinding
-import marshi.android.catalog.databinding.CustomViewBinding
 import marshi.android.catalog.R as CatalogR
 
 class MainActivity : AppCompatActivity() {
@@ -22,10 +18,10 @@ class MainActivity : AppCompatActivity() {
       DataBindingUtil.setContentView<ActivityMainBinding>(this, CatalogR.layout.activity_main)
     val catalog = Catalog()
 
-    catalog.viewGroupStyles(
+    catalog.styles(
       this,
-      CatalogR.style.AppTheme_CustomView,
-      view = CustomView(this)
+      CustomView::class.java,
+      CatalogR.style.AppTheme_CustomView
     )
     catalog.styles(
       this,
@@ -42,14 +38,12 @@ class MainActivity : AppCompatActivity() {
       CatalogR.style.AppTheme_Button_Small,
       text = "button"
     )
-
     catalog.styles(
       this,
       AppCompatImageView::class.java,
       CatalogR.style.AppTheme_Image_Small,
       CatalogR.style.AppTheme_Image_Large
     )
-
     binding.recyclerView.apply {
       adapter = CatalogViewAdapter(catalog.views)
     }
