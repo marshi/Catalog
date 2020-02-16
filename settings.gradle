@@ -1,5 +1,3 @@
 rootProject.name='Catalog'
 include ':app'
-include ':catalog-app'
-include ':catalog-compiler'
-include ':catalog-annotation'
+include ':library'

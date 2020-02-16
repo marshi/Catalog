@@ -6,12 +6,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.DataBindingUtil
-import app.saiki.generated.CustomView_Greeter
-import com.airbnb.paris.extensions.textViewStyle
-import kotlinx.android.synthetic.main.activity_main.*
 import marshi.android.catalog.app.Catalog
 import marshi.android.catalog.databinding.ActivityMainBinding
 import marshi.android.catalog.R as CatalogR
@@ -55,6 +51,5 @@ class MainActivity : AppCompatActivity() {
     binding.recyclerView.apply {
       adapter = CatalogViewAdapter(catalog.views)
     }
-    Log.d("kapt", CustomView_Greeter().greet())
   }
 }
