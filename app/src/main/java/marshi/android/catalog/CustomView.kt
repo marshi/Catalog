@@ -3,22 +3,25 @@ package marshi.android.catalog
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.appcompat.widget.AppCompatTextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import marshi.android.catalog.databinding.CustomViewBinding
-import java.io.Serializable
 
 class CustomView @JvmOverloads constructor(
   context: Context,
   attrs: AttributeSet? = null,
   defStyle: Int = 0
-) : Serializable, AppCompatTextView(
+) : ConstraintLayout(
   context, attrs, defStyle
 ) {
-  val binding = CustomViewBinding.inflate(LayoutInflater.from(context), null, true)
+  private val binding = CustomViewBinding.inflate(LayoutInflater.from(context), this, true)
 
   init {
-    if (!isInEditMode) {
-    }
+    val a = context.obtainStyledAttributes(
+      attrs,
+      intArrayOf(),
+      defStyle,
+      0
+    )
+    a.recycle()
   }
 }
-

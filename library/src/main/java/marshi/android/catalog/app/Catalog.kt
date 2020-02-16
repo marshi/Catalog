@@ -25,8 +25,8 @@ class Catalog() {
     when (instance) {
       is TextView -> textStyles(context, *styles)
       is ImageView -> imageStyles(context, *styles)
-      else -> viewStyles(context, clazz, *styles)
 //      is ViewGroup -> viewGroupStyles(context, *styles)
+      else -> viewStyles(context, clazz, *styles)
     }
   }
 
@@ -58,12 +58,12 @@ class Catalog() {
     _views.addAll(buttonViews)
   }
 
-//  fun viewGroupStyles(context: Context, @StyleRes vararg styles: Int) {
-//    val buttonViews = styles.map { styleId ->
-//      ViewGroup(context).apply {
-//        style(styleId)
-//      }
-//    }
-//    _views.addAll(buttonViews)
-//  }
+  fun viewGroupStyles(context: Context, @StyleRes vararg styles: Int, view: ViewGroup) {
+    val buttonViews = styles.map { styleId ->
+      view.apply {
+        style(styleId)
+      }
+    }
+    _views.addAll(buttonViews)
+  }
 }
