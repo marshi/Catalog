@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.DataBindingUtil
-import marshi.android.catalog.app.Catalog
+import marshi.android.catalog.app.CatalogBuilder
 import marshi.android.catalog.databinding.ActivityMainBinding
 import marshi.android.catalog.R as CatalogR
 
@@ -16,21 +16,20 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     val binding =
       DataBindingUtil.setContentView<ActivityMainBinding>(this, CatalogR.layout.activity_main)
-    val catalog = Catalog()
-
-    catalog.styles(
+    val catalogBuilder = CatalogBuilder()
+    catalogBuilder.styles(
       this,
       CustomView::class.java,
       CatalogR.style.AppTheme_CustomView
     )
-    catalog.styles(
+    catalogBuilder.styles(
       this,
       TextView::class.java,
       CatalogR.style.AppTheme_Text_Small,
       CatalogR.style.AppTheme_Text_Large,
       text = "text"
     )
-    catalog.styles(
+    catalogBuilder.styles(
       this,
       Button::class.java,
       CatalogR.style.AppTheme_Button_Large,
@@ -38,14 +37,14 @@ class MainActivity : AppCompatActivity() {
       CatalogR.style.AppTheme_Button_Small,
       text = "button"
     )
-    catalog.styles(
+    catalogBuilder.styles(
       this,
       AppCompatImageView::class.java,
       CatalogR.style.AppTheme_Image_Small,
       CatalogR.style.AppTheme_Image_Large
     )
     binding.recyclerView.apply {
-      adapter = CatalogViewAdapter(catalog.views)
+      adapter = CatalogViewAdapter(catalogBuilder.build())
     }
   }
 }

@@ -4,9 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import marshi.android.catalog.app.Catalog
 import marshi.android.catalog.databinding.CatalogViewBinding
 
-class CatalogViewAdapter(private val views: List<View>) :
+class CatalogViewAdapter(private val catalog: Catalog) :
   RecyclerView.Adapter<CatalogViewHolder>() {
 
   lateinit var binding: CatalogViewBinding
@@ -16,10 +17,10 @@ class CatalogViewAdapter(private val views: List<View>) :
     return CatalogViewHolder(binding.root)
   }
 
-  override fun getItemCount(): Int = views.size
+  override fun getItemCount(): Int = catalog.views.size
 
   override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
-    binding.container.addView(views[position])
+    binding.container.addView(catalog.views[position])
   }
 }
 
