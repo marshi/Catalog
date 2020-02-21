@@ -7,16 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.DataBindingUtil
 import marshi.android.catalog.app.CatalogBuilder
-import marshi.android.catalog.databinding.ActivityMainBinding
+import marshi.android.catalog.databinding.ActivitySampleBinding
 import marshi.android.catalog.hyperionplugin.CatalogViewAdapter
 import marshi.android.catalog.R as CatalogR
 
-class MainActivity : AppCompatActivity() {
+class SampleActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     val binding =
-      DataBindingUtil.setContentView<ActivityMainBinding>(this, CatalogR.layout.activity_main)
+      DataBindingUtil.setContentView<ActivitySampleBinding>(this, CatalogR.layout.activity_sample)
     val catalogBuilder = CatalogBuilder()
     catalogBuilder.styles(
       this,

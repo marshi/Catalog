@@ -11,6 +11,6 @@ class HyperionMenuItemView @JvmOverloads constructor(
   defStyle: Int = 0
 ) : ConstraintLayout(context, attrs, defStyle) {
   init {
-    LayoutInflater.from(context).inflate(R.layout.sample_hyperion_menu_item_view, this, true)
+    LayoutInflater.from(context).inflate(R.layout.hyperion_menu_item_view, this, true)
   }
 }

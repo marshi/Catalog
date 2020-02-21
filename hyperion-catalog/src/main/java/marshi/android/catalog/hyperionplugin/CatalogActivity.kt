@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import marshi.android.catalog.hyperionplugin.databinding.ActivityComponentCatalogBinding
+import marshi.android.catalog.hyperionplugin.databinding.ActivityCatalogBinding
 
 class CatalogActivity : AppCompatActivity() {
 
@@ -17,9 +17,9 @@ class CatalogActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    val binding = DataBindingUtil.setContentView<ActivityComponentCatalogBinding>(
+    val binding = DataBindingUtil.setContentView<ActivityCatalogBinding>(
       this,
-      R.layout.activity_component_catalog
+      R.layout.activity_catalog
     )
 //    val catalogBuilder = CatalogBuilder()
 //    binding.recyclerView.apply {
