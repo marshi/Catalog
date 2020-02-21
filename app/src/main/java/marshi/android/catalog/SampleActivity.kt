@@ -8,40 +8,39 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.DataBindingUtil
 import marshi.android.catalog.app.CatalogBuilder
 import marshi.android.catalog.databinding.ActivitySampleBinding
-import marshi.android.catalog.R as CatalogR
 
 class SampleActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     val binding =
-      DataBindingUtil.setContentView<ActivitySampleBinding>(this, CatalogR.layout.activity_sample)
+      DataBindingUtil.setContentView<ActivitySampleBinding>(this, R.layout.activity_sample)
     val catalogBuilder = CatalogBuilder()
     catalogBuilder.styles(
       this,
       CustomView::class.java,
-      CatalogR.style.AppTheme_CustomView
+      R.style.AppTheme_CustomView
     )
     catalogBuilder.styles(
       this,
       TextView::class.java,
-      CatalogR.style.AppTheme_Text_Small,
-      CatalogR.style.AppTheme_Text_Large,
+      R.style.AppTheme_Text_Small,
+      R.style.AppTheme_Text_Large,
       text = "text"
     )
     catalogBuilder.styles(
       this,
       Button::class.java,
-      CatalogR.style.AppTheme_Button_Large,
-      CatalogR.style.AppTheme_Button_Middle,
-      CatalogR.style.AppTheme_Button_Small,
+      R.style.AppTheme_Button_Large,
+      R.style.AppTheme_Button_Middle,
+      R.style.AppTheme_Button_Small,
       text = "button"
     )
     catalogBuilder.styles(
       this,
       AppCompatImageView::class.java,
-      CatalogR.style.AppTheme_Image_Small,
-      CatalogR.style.AppTheme_Image_Large
+      R.style.AppTheme_Image_Small,
+      R.style.AppTheme_Image_Large
     )
     binding.recyclerView.apply {
       adapter =
