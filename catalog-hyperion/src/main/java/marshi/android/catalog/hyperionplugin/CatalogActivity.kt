@@ -21,9 +21,8 @@ class CatalogActivity : AppCompatActivity() {
       this,
       R.layout.activity_catalog
     )
-//    val catalogBuilder = CatalogBuilder()
-//    binding.recyclerView.apply {
-//      adapter = CatalogViewAdapter(catalogBuilder.build())
-//    }
+    CatalogHyperionPlugin.catalog?.let { catalog ->
+      binding.recyclerView.adapter = CatalogViewAdapter(catalog)
+    }
   }
 }

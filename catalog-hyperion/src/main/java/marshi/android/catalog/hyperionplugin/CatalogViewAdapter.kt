@@ -12,7 +12,6 @@ internal class CatalogViewAdapter(private val catalog: Catalog) :
 
   lateinit var binding: CatalogComponentViewBinding
 
-
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
     binding =
       CatalogComponentViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
