@@ -8,6 +8,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.DataBindingUtil
 import marshi.android.catalog.app.CatalogBuilder
 import marshi.android.catalog.databinding.ActivityMainBinding
+import marshi.android.catalog.hyperionplugin.CatalogViewAdapter
 import marshi.android.catalog.R as CatalogR
 
 class MainActivity : AppCompatActivity() {
@@ -44,7 +45,8 @@ class MainActivity : AppCompatActivity() {
       CatalogR.style.AppTheme_Image_Large
     )
     binding.recyclerView.apply {
-      adapter = CatalogViewAdapter(catalogBuilder.build())
+      adapter =
+        CatalogViewAdapter(catalogBuilder.build())
     }
   }
 }

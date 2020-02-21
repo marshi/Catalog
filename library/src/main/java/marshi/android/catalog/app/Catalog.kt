@@ -22,11 +22,11 @@ class CatalogBuilder {
   ) {
     val viewList =
       when (val instance = clazz.getConstructor(Context::class.java).newInstance(context)) {
-      is TextView -> textStyles(context, *styles, text = text)
-      is ImageView -> imageStyles(context, *styles)
-      is ViewGroup -> viewGroupStyles(context, *styles, view = instance)
-      else -> viewStyles(context, clazz, *styles)
-    }
+        is TextView -> textStyles(context, *styles, text = text)
+        is ImageView -> imageStyles(context, *styles)
+        is ViewGroup -> viewGroupStyles(*styles, view = instance)
+        else -> viewStyles(context, clazz, *styles)
+      }
     views.addAll(viewList)
   }
 
@@ -66,7 +66,7 @@ class CatalogBuilder {
   }
 
   private fun viewGroupStyles(
-    context: Context, @StyleRes vararg styles: Int,
+    @StyleRes vararg styles: Int,
     view: ViewGroup
   ): List<ViewGroup> {
     return styles.map { styleId ->
