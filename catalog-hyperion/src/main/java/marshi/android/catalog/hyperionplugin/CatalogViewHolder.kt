@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import marshi.android.catalog.app.Catalog
 import marshi.android.catalog.hyperionplugin.databinding.CatalogComponentViewBinding
 
-class CatalogViewAdapter(private val catalog: Catalog) :
+internal class CatalogViewAdapter(private val catalog: Catalog) :
   RecyclerView.Adapter<CatalogViewHolder>() {
 
   lateinit var binding: CatalogComponentViewBinding

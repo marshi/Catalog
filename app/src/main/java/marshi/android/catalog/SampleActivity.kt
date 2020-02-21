@@ -8,7 +8,6 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.DataBindingUtil
 import marshi.android.catalog.app.CatalogBuilder
 import marshi.android.catalog.databinding.ActivitySampleBinding
-import marshi.android.catalog.hyperionplugin.CatalogViewAdapter
 import marshi.android.catalog.R as CatalogR
 
 class SampleActivity : AppCompatActivity() {
