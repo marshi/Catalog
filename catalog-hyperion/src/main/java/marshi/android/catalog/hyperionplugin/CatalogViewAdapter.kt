@@ -4,27 +4,32 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import marshi.android.catalog.app.Catalog
-import marshi.android.catalog.hyperionplugin.databinding.CatalogComponentViewBinding
+import marshi.android.catalog.hyperionplugin.databinding.CatalogComponentItemViewBinding
+import marshi.android.catalog.hyperionplugin.databinding.CatalogComponentListViewBinding
 
 internal class CatalogViewAdapter(private val catalog: Catalog) :
   RecyclerView.Adapter<CatalogViewHolder>() {
 
-  lateinit var binding: CatalogComponentViewBinding
-
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
-    binding =
-      CatalogComponentViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    val binding =
+      CatalogComponentListViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     return CatalogViewHolder(binding.container)
   }
 
   override fun getItemCount(): Int = catalog.views.size
 
   override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
-    val viewStyle = catalog.views[position]
-    catalog.create(holder.v.context, viewStyle).forEach { view ->
-      binding.container.addView(view)
+    catalog.views[position].create(holder.listView.context).forEach { view ->
+      val itemViewBinding =
+        CatalogComponentItemViewBinding.inflate(
+          LayoutInflater.from(holder.listView.context),
+          holder.listView,
+          true
+        )
+      itemViewBinding.container.addView(view)
     }
   }
 }
 
-class CatalogViewHolder(val v: ViewGroup) : RecyclerView.ViewHolder(v)
+class CatalogViewHolder(val listView: ViewGroup) :
+  RecyclerView.ViewHolder(listView)
