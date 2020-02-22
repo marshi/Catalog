@@ -1,7 +1,6 @@
 package marshi.android.catalog.hyperionplugin
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import marshi.android.catalog.app.Catalog
@@ -15,14 +14,22 @@ internal class CatalogViewAdapter(private val catalog: Catalog) :
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatalogViewHolder {
     binding =
       CatalogComponentViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-    return CatalogViewHolder(binding.root)
+    return CatalogViewHolder(binding.container)
   }
 
   override fun getItemCount(): Int = catalog.views.size
 
   override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
-    binding.container.addView(catalog.views[position])
+    val view = catalog.views[position]
+//    (view as ViewGroup).minusAssign() = null
+    if (view.parent != null) {
+      view.parent
+    }
+    if (view.parent == null) {
+      holder.v.addView(view)
+    }
+//    binding.container.addView(view)
   }
 }
 
-class CatalogViewHolder(val v: View) : RecyclerView.ViewHolder(v)
+class CatalogViewHolder(val v: ViewGroup) : RecyclerView.ViewHolder(v)

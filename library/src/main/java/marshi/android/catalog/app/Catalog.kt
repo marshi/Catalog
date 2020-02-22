@@ -36,7 +36,8 @@ class CatalogBuilder {
 
   private fun <T : View> viewStyles(
     context: Context,
-    clazz: Class<T>, @StyleRes vararg styles: Int
+    clazz: Class<T>,
+    @StyleRes vararg styles: Int
   ): List<T> {
     return styles.map { styleId ->
       clazz.getConstructor(Context::class.java).newInstance(context).apply {
