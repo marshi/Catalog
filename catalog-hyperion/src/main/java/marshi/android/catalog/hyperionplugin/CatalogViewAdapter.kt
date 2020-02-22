@@ -19,7 +19,7 @@ internal class CatalogViewAdapter(private val catalog: Catalog) :
   override fun getItemCount(): Int = catalog.views.size
 
   override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
-    catalog.views[position].create(holder.listView.context).forEach { view ->
+    catalog.views[position].createView(holder.listView.context).forEach { view ->
       val itemViewBinding =
         CatalogComponentItemViewBinding.inflate(
           LayoutInflater.from(holder.listView.context),

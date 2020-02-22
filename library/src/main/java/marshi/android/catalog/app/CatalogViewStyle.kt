@@ -13,7 +13,7 @@ class CatalogViewStyle<T : View>(
   @StyleRes private val styles: List<Int>,
   private val text: String?
 ) {
-  fun create(context: Context): List<View> {
+  fun createView(context: Context): List<View> {
     return when (val instance = clazz.getConstructor(Context::class.java).newInstance(context)) {
       is TextView -> textStyles(context, *styles.toIntArray(), text = text)
       is ImageView -> imageStyles(context, *styles.toIntArray())
