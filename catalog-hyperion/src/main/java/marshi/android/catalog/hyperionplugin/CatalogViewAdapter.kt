@@ -24,14 +24,6 @@ internal class CatalogViewAdapter(private val catalog: Catalog) :
     catalog.create(holder.v.context, viewStyle).forEach { view ->
       binding.container.addView(view)
     }
-//    viewStyles.
-////    (view as ViewGroup).minusAssign() = null
-//    if (view.parent != null) {
-//      view.parent
-//    }
-//    if (view.parent == null) {
-//      holder.v.addView(view)
-//    }
   }
 }
 

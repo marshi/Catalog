@@ -7,7 +7,7 @@ class DebugApp : Application() {
 
   override fun onCreate() {
     super.onCreate()
-    val catalogFactory = CatalogFactory(this)
+    val catalogFactory = CatalogFactory()
     val catalog = catalogFactory.create()
     CatalogHyperionPlugin.register(catalog)
   }
