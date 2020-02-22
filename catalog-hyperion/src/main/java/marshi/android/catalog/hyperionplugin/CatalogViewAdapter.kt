@@ -20,15 +20,18 @@ internal class CatalogViewAdapter(private val catalog: Catalog) :
   override fun getItemCount(): Int = catalog.views.size
 
   override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
-    val view = catalog.views[position]
-//    (view as ViewGroup).minusAssign() = null
-    if (view.parent != null) {
-      view.parent
+    val viewStyle = catalog.views[position]
+    catalog.create(holder.v.context, viewStyle).forEach { view ->
+      binding.container.addView(view)
     }
-    if (view.parent == null) {
-      holder.v.addView(view)
-    }
-//    binding.container.addView(view)
+//    viewStyles.
+////    (view as ViewGroup).minusAssign() = null
+//    if (view.parent != null) {
+//      view.parent
+//    }
+//    if (view.parent == null) {
+//      holder.v.addView(view)
+//    }
   }
 }
 

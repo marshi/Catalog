@@ -20,7 +20,7 @@ class CatalogViewAdapter(private val catalog: Catalog) :
   override fun getItemCount(): Int = catalog.views.size
 
   override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
-    binding.container.addView(catalog.views[position])
+//    binding.container.addView(catalog.views[position])
   }
 }
 

@@ -10,13 +10,13 @@ import marshi.android.catalog.app.CatalogBuilder
 class CatalogFactory(private val context: Context) {
   fun create(): Catalog {
     val catalogBuilder = CatalogBuilder()
-    catalogBuilder.styles(
-      context,
+    catalogBuilder.style(
+//      context,
       CustomView::class.java,
       R.style.AppTheme_CustomView
     )
-    catalogBuilder.styles(
-      context,
+    catalogBuilder.style(
+//      context,
       TextView::class.java,
       R.style.AppTheme_Text_Small,
       R.style.AppTheme_Text_Large,
