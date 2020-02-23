@@ -9,6 +9,7 @@ import androidx.annotation.StyleRes
 import com.airbnb.paris.extensions.style
 
 class CatalogViewStyle<T : View>(
+  val title: String,
   private val clazz: Class<T>,
   @StyleRes private val styles: List<Int>,
   private val text: String?

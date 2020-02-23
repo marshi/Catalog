@@ -10,16 +10,19 @@ class CatalogFactory() {
   fun create(): Catalog {
     val catalogBuilder = CatalogBuilder()
     catalogBuilder.style(
+      "CustomView",
       CustomView::class.java,
       R.style.AppTheme_CustomView
     )
     catalogBuilder.style(
+      "TextView",
       TextView::class.java,
       R.style.AppTheme_Text_Small,
       R.style.AppTheme_Text_Large,
       text = "text"
     )
     catalogBuilder.style(
+      "Button",
       Button::class.java,
       R.style.AppTheme_Button_Large,
       R.style.AppTheme_Button_Middle,
@@ -27,6 +30,7 @@ class CatalogFactory() {
       text = "button"
     )
     catalogBuilder.style(
+      "ImageView",
       AppCompatImageView::class.java,
       R.style.AppTheme_Image_Small,
       R.style.AppTheme_Image_Large

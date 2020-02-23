@@ -17,7 +17,7 @@ class CatalogViewAdapter(private val catalog: Catalog) :
     return CatalogViewHolder(binding.root)
   }
 
-  override fun getItemCount(): Int = catalog.views.size
+  override fun getItemCount(): Int = catalog.viewStyles.size
 
   override fun onBindViewHolder(holder: CatalogViewHolder, position: Int) {
 //    binding.container.addView(catalog.views[position])
