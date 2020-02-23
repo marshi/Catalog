@@ -2,6 +2,20 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+  def groupProjectID = 'marshi.android'
+  def artifactProjectID = 'catalog-hyperion-plugin'
+  def publishVersionID = '0.0.1'
+  userOrg = 'marshi'
+  repoName = 'maven'
+  groupId = groupProjectID
+  artifactId = artifactProjectID
+  publishVersion = publishVersionID
+  desc = 'desc'
+  website = 'https://github.com/marshi/Catalog'
+}
 
 android {
   compileSdkVersion 29
@@ -19,7 +33,7 @@ android {
 
   buildTypes {
     release {
-      minifyEnabled false
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
@@ -30,7 +44,7 @@ android {
 }
 
 dependencies {
-  implementation project(":library")
+  implementation project(':catalog')
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation 'androidx.appcompat:appcompat:1.1.0'
   implementation 'androidx.core:core-ktx:1.2.0'
