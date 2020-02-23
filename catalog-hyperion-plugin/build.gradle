@@ -4,10 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.novoda.bintray-release'
 
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 publish {
   def groupProjectID = 'marshi.android'
   def artifactProjectID = 'catalog-hyperion-plugin'
-  def publishVersionID = '0.0.1'
+  def publishVersionID = version
   userOrg = 'marshi'
   repoName = 'maven'
   groupId = groupProjectID
@@ -26,8 +29,6 @@ android {
     targetSdkVersion 29
     versionCode 1
     versionName "1.0"
-
-    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles 'consumer-rules.pro'
   }
 

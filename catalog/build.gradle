@@ -9,7 +9,7 @@ targetCompatibility = 1.8
 publish {
   def groupProjectID = 'marshi.android'
   def artifactProjectID = 'catalog'
-  def publishVersionID = '0.0.1'
+  def publishVersionID = version
   userOrg = 'marshi'
   repoName = 'maven'
   groupId = groupProjectID
