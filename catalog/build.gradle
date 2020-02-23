@@ -9,7 +9,7 @@ targetCompatibility = 1.8
 publish {
   def groupProjectID = 'marshi.android'
   def artifactProjectID = 'catalog'
-  def publishVersionID = version
+  def publishVersionID = versions.library
   userOrg = 'marshi'
   repoName = 'maven'
   groupId = groupProjectID
@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${versions.kotlin}"
   implementation 'com.airbnb.android:paris:1.4.0'
   implementation 'androidx.appcompat:appcompat:1.1.0'
   implementation 'androidx.core:core-ktx:1.2.0'
