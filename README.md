@@ -1,7 +1,7 @@
 [![Build Status](https://app.bitrise.io/app/0be8213a8ab917b8/status.svg?token=Q1-kHm3Git_JZdZ5qh1eNQ&branch=master)](https://app.bitrise.io/app/0be8213a8ab917b8)
 # Catalog
 
-Catalog support show UI component list.
+Catalog support to show UI component list.
 
 # Get started
 
