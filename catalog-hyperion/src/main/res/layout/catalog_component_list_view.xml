@@ -15,17 +15,12 @@
 
     <TextView
       android:id="@+id/title"
+      style="@style/Title"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:textColor="@color/black"
-      android:textSize="20sp"
       tools:text="title" />
 
-    <View
-      android:layout_width="wrap_content"
-      android:layout_height="1dp"
-      android:layout_marginEnd="20dp"
-      android:background="@android:color/widget_edittext_dark" />
+    <View style="@style/Divider" />
 
   </LinearLayout>
 </layout>
